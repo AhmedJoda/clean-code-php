@@ -69,18 +69,23 @@
 ### استخدم أسماء متغيرات ذات معنى وقابلة للنطق
 
 **سيء:**
+
 </div>
 
 ```php
 $ymdstr = $moment->format('y-m-d');
 ```
+
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
 $currentDate = $moment->format('y-m-d');
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -88,6 +93,7 @@ $currentDate = $moment->format('y-m-d');
 ### استخدم نفس المفردات لنفس النوع من المتغيرات
 
 **سيء:**
+
 </div>
 
 ```php
@@ -98,12 +104,15 @@ getUserProfile();
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
 getUser();
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -113,6 +122,7 @@ getUser();
 نحن نقرأ كود أكثر مما نكتب. من المهم أن يكون الكود الذي نكتبه قابل للقراءة والبحث. نحن نؤذي قرائ كودنا من خلال عدم كتابة أسماء متغيرة لها معنى لفهم برنامجنا. قم بإنشاء أسماء يمكن البحث عنها.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -121,17 +131,21 @@ $result = $serializer->serialize($data, 448);
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
 $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ```
+
 <div dir="rtl">
 
 ### استخدام أسماء قابلة للبحث (الجزء 2)
 
 **سيء:**
+
 </div>
 
 ```php
@@ -151,7 +165,9 @@ $user->access ^= 2;
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -176,6 +192,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 // Deny access rights to create something
 $user->access ^= User::ACCESS_CREATE;
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -183,6 +200,7 @@ $user->access ^= User::ACCESS_CREATE;
 ### استخدم متغيرات توضيحية
 
 **سيء:**
+
 </div>
 
 ```php
@@ -192,10 +210,13 @@ preg_match($cityZipCodeRegex, $address, $matches);
 
 saveCityZipCode($matches[1], $matches[2]);
 ```
+
 <div dir="rtl">
+
 **ليس سيئا:**
 
 إنه أفضل ، لكننا ما زلنا نعتمد بشدة على regex.
+
 </div>
 
 ```php
@@ -208,10 +229,13 @@ saveCityZipCode($city, $zipCode);
 ```
 
 <div dir="rtl">
+
 **جيد:**
-</div>
+
 
 تقليل الاعتماد على regex من خلال تسمية أنماط فرعية.
+
+</div>
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -220,6 +244,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -229,6 +254,7 @@ saveCityZipCode($matches['city'], $matches['zipCode']);
 يمكن أن يؤدي وجود عدد كبير جدًا من عبارات if-else إلى صعوبة متابعة الأوامر البرمجية. حاول أن تكون صريح وواضح.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -253,7 +279,9 @@ function isShopOpen($day): bool
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -268,6 +296,7 @@ function isShopOpen(string $day): bool
     return in_array(strtolower($day), $openingDays, true);
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -275,6 +304,7 @@ function isShopOpen(string $day): bool
 ### تجنب التداخل بعمق كبير (الجزء 2)
 
 **سيء:**
+
 </div>
 
 ```php
@@ -294,7 +324,9 @@ function fibonacci(int $n)
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -311,6 +343,7 @@ function fibonacci(int $n): int
     return fibonacci($n - 1) + fibonacci($n - 2);
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -320,6 +353,7 @@ function fibonacci(int $n): int
 لا تجبر قارئ الكود على ترجمة ماذا يعني المتغير. حاول أن تكون صريح وواضح
 
 **سيء:**
+
 </div>
 
 ```php
@@ -338,7 +372,9 @@ for ($i = 0; $i < count($l); $i++) {
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -353,6 +389,7 @@ foreach ($locations as $location) {
     dispatch($location);
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -362,6 +399,7 @@ foreach ($locations as $location) {
 إذا أخبرك اسم الكلاس / الكائن بشيء ما ، فلا تكرر ذلك في اسم المتغير.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -378,7 +416,9 @@ class Car
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -401,9 +441,10 @@ class Car
 
 ### استخدم [مقارنة التطابق](http://php.net/manual/en/language.operators.comparison.php)
 
-**ليس جيد:**
+**ليس جيدا:**
 
 في المقارنة البسيطة باستعمال علامتان, يعتبر النص والرقم متشابه.
+
 </div>
 
 ```php
@@ -414,6 +455,7 @@ if ($a != $b) {
     // The expression is verified
 }
 ```
+
 <div dir="rtl">
 
 المقارنة `$a != $b` سوف تقوم بإرجاع `FALSE`؟ لكن في الحقيقة انها  `TRUE`!
@@ -422,6 +464,7 @@ if ($a != $b) {
 **جيد:**
 
 ستقارن المقارنة المتطابقة باستعمال ثلاث علامات بين النوعين والقيمتين
+
 </div>
 
 ```php
@@ -432,6 +475,7 @@ if ($a !== $b) {
     // The expression is verified
 }
 ```
+
 <div dir="rtl">
 
 المقارنة `$a !== $b` سوف تقوم بإرجاع `TRUE`.
@@ -443,6 +487,7 @@ if ($a !== $b) {
 Null coalescing هوا عامل جديد [في PHP 7](https://www.php.net/manual/en/migration70.new-features.php). عامل null coalescing `??` تمت اضافته كبديل ل `isset()`. يُعيد مُعامله الأول إذا كان موجود; وإلا فإنه يُعيد مُعامله الثاني إذا كان `null`.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -456,12 +501,15 @@ if (isset($_GET['name'])) {
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
 $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -470,9 +518,10 @@ $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 
 ### استخدم المعاملات الأفتراضية بدلا من الروابط المختصرة او الأوامر الشرطية
 
-**Not good:**
+**ليس جيدا:**
 
 هذا ليس جيدًا لأن `$breweryName` يمكن أن يكون` NULL`.
+
 </div>
 
 ```php
@@ -482,9 +531,13 @@ function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
+<div dir="rtl">
+
 **ليس سيئا:**
 
 هذا الرأي مفهوم أكثر من الكود السابق ، لأنه يتحكم بشكل أفضل في قيمة المتغير.
+
+</div>
 
 ```php
 function createMicrobrewery($name = null): void
@@ -495,9 +548,11 @@ function createMicrobrewery($name = null): void
 ```
 
 <div dir="rtl">
+
 **جيد:**
 
 يمكنك استخدام [type hinting](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) والتأكد من أن `$breweryName` لن يكون `NULL`.
+
 </div>
 
 ```php
@@ -518,6 +573,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 الدالات التي ليس لها أي معامل هي الحالة المثالية. لا يوجد مشكلة بوجود معامل أو اثنين ، ويجب تجنب ثلاث معاملات. أي شيء أكثر من ذلك يجب أن يتم تجميعه. عادة ، إذا كان لديك أكثر من معاملان فالدالة تحاول أن تفعل الكثير من الأشياء. في حين انها عليها فعل شيء واحد ،في معظم الأحيان ، يكفي كائن مستوى أعلى كوسيط.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -539,7 +595,9 @@ class Questionnaire
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -602,6 +660,7 @@ class Questionnaire
     }
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -609,6 +668,7 @@ class Questionnaire
 ### يجب أن تعبر أسماء الدوال عن ما تفعل
 
 **سيء:**
+
 </div>
 
 ```php
@@ -628,7 +688,9 @@ $message->handle();
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -646,6 +708,7 @@ $message = new Email(...);
 // Clear and obvious
 $message->send();
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -655,6 +718,7 @@ $message->send();
 عندما يكون لديك أكثر من مستوى من التجريد تكون الدالة عادة تفعل الكثير. يؤدي تقسيم الدوال إلى إعادة الاستخدام وسهولة اختبارات.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -682,11 +746,13 @@ function parseBetterPHPAlternative(string $code): void
     }
 }
 ```
+
 <div dir="rtl">
 
 **سيء أيضا:**
 
 لقد قمنا بعمل بعض الدوال الخارجية ، لكن الدالة `parseBetterPHPAlternative ()` لا تزال معقدة للغاية وغير قابلة للاختبار.
+
 </div>
 
 ```php
@@ -728,9 +794,11 @@ function parseBetterPHPAlternative(string $code): void
 ```
 
 <div dir="rtl">
+
 **جيد:**
 
 أفضل حل هو إزالة اعتمادات دالة `parseBetterPHPAlternative ()`.
+
 </div>
 
 ```php
@@ -788,6 +856,7 @@ class BetterPHPAlternative
     }
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -797,6 +866,7 @@ class BetterPHPAlternative
 تدل العلامات على أن هذه الدالة تقوم بأكثر من شيء. يجب أن تفعل الدوال شيئا واحدا. قسّم دوالك إذا كانت تتبع مسارات كود مختلفة على أساس قيمة منطقية.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -811,7 +881,9 @@ function createFile(string $name, bool $temp = false): void
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -825,6 +897,7 @@ function createTempFile(string $name): void
     touch('./temp/' . $name);
 }
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -841,6 +914,7 @@ function createTempFile(string $name): void
 النقطة الأساسية هي تجنب المزالق الشائعة مثل مشاركة الحالة بين الكائنات بدون أي بنية ، باستخدام أنواع البيانات القابلة للتغيير التي يمكن الكتابة إليها بأي شيء ، وليس التركيز على مكان حدوث الآثار الجانبية. إذا تمكنت من القيام بذلك ، فستكون أكثر سعادة من الغالبية العظمى من المبرمجين الآخرين.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -862,7 +936,9 @@ var_dump($name);
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -880,6 +956,7 @@ var_dump($name);
 var_dump($newName);
 // ['Ryan', 'McDermott'];
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -890,6 +967,7 @@ var_dump($newName);
 يعد مفهوم (Polluting globals) (كتابة دوال عالمة) ممارسة سيئة في العديد من لغات البرمجة لأنه يمكنك التعارض مع مكتبة أو واجهة برمجة تطبيقات (API) أخرى على سبيل المثال: ماذا تفعل إذا كنت تريد إنشاء مصفوفة إعدادات؟ يمكنك كتابة دالة عالمية مثل `config()` ، لكنها قد تتعارض مع مكتبة أخرى حاولت أن تفعل الشيء نفسه.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -902,7 +980,9 @@ function config(): array
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -925,6 +1005,7 @@ class Configuration
 <div dir="rtl">
 
 إنشئ نسخة من كلاس `Configuration`
+
 </div>
 
 ```php
@@ -932,6 +1013,7 @@ $configuration = new Configuration([
     'foo' => 'bar',
 ]);
 ```
+
 <div dir="rtl">
 
 والآن يجب عليك استخدام نسخة من `Configuration` في التطبيق.
@@ -949,6 +1031,7 @@ Singleton هو [نمط مضاد](https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%8
 هناك أيضا أفكار جيدة جدا من قبل [Misko Hevery](http://misko.hevery.com/about/) عن [جذر المشكلة](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -977,7 +1060,9 @@ $singleton = DBConnection::getInstance();
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -994,6 +1079,7 @@ class DBConnection
 <div dir="rtl">
 
 قم بإنشاء مثيل لفئة `DBConnection` وقم تهيئته باستخدام [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
+
 </div>
 
 ```php
@@ -1008,6 +1094,7 @@ $connection = new DBConnection($dsn);
 ### غلف الأوامر الشرطية
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1017,7 +1104,9 @@ if ($article->state === 'published') {
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1032,6 +1121,7 @@ if ($article->isPublished()) {
 ### تجنب الأوامر الشرطية السلبية
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1046,7 +1136,9 @@ if (! isDOMNodeNotPresent($node)) {
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1069,6 +1161,7 @@ if (isDOMNodePresent($node)) {
 تبدو هذه مهمة مستحيلة. عند سماع هذا لأول مرة ، يقول معظم الناس ، "كيف يفترض بي أن أفعل أي شيء بدون عبارة`if` ؟" الجواب هو أنه يمكنك استخدام تعدد الأشكال (polymorphism) لتحقيق نفس المهمة في كثير من الحالات. السؤال الثاني هو عادة ، "حسنًا هذا رائع ولكن لماذا أرغب في القيام بذلك؟" الإجابة هي مفهوم كود نظيف سابق تعلمناه: يجب أن تقوم الدالة بشيء واحد فقط. عندما يكون لديك كلاسات ودوال تحتوي على عبارات `if` ، فأنت تخبر المستخدم أن الدالة تقوم بأكثر من شيء. تذكر ، افعل شيئًا واحدًا فقط.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1091,7 +1184,9 @@ class Airplane
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1141,6 +1236,7 @@ class Cessna implements Airplane
 لغة الPHP هي غير نوعية، مما يعني أن الدوال يمكن أن تأخذ أي نوع من المعاملات. أحيانًا تلدغك هذه الحرية ويصبح من المغري القيام بفحص النوع في الدالة. هناك العديد من الطرق لتجنب الاضطرار إلى القيام بذلك. أول شيء يجب مراعاته هو واجهات برمجة التطبيقات (APIs) المتسقة.
 
 **سيء:**
+
 </div>
 
 
@@ -1156,7 +1252,9 @@ function travelToTexas($vehicle): void
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1174,6 +1272,7 @@ function travelToTexas(Vehicle $vehicle): void
  إذا كنت تعمل مع قيم أولية أساسية مثل النصوص (strings)  أو الأعداد الصحيحة (integers) أو المصفوفات (arrays)، وكنت تستخدم PHP 7+ ولا يمكنك استخدام تعدد الأشكال (polymorphism) ولكنك ما زلت تشعر بالحاجة إلى التحقق من النوع ، فعليك التفكير في استخدام تعريف النوع [(type declaration)](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) أو الوضع الصارم (strict mode).  يوفر لك كتابة ثابتة (static) مع syntax PHP القياسي. تكمن مشكلة فحص النوع يدويًا في أن القيام بذلك يتطلب الكثير من الكود الإضافي بأن `سلامة الأنماط` الزائف الذي تحصل عليه لا يعوض ما فقده من قابلية القرائة. ابقي الكود نظيف, اكتب اختبارات جيدة, وأحصل على مراجعات جيدة للكود بخلاف ذلك ، افعل كل ذلك ولكن باستخدام تعريف النوع (ype declaration) أو  الوضع الصارم(strict mode)
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1188,7 +1287,9 @@ function combine($val1, $val2): int
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1197,6 +1298,8 @@ function combine(int $val1, int $val2): int
     return $val1 + $val2;
 }
 ```
+
+<div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
 
@@ -1208,6 +1311,8 @@ function combine(int $val1, int $val2): int
 في سجل الاصدارات إذا كنت لا تزال بحاجة إليه.
 
 **سيء:**
+
+</div>
 
 ```php
 function oldRequestModule(string $url): void
@@ -1225,7 +1330,9 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1237,6 +1344,7 @@ function requestModule(string $url): void
 $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
+
 <div dir="rtl">
 
 **[⬆ الرجوع إلى الأعلى](#الفهرس)**
@@ -1260,6 +1368,7 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 بالإضافة إلى أن هذا جزء من [مبدأ مفتوح / مغلق (Open / Closed Principle)](#مبدأ-مفتوح-مغلق-open-closed-principle،-ocp).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1275,7 +1384,9 @@ $bankAccount->balance -= 100;
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1330,6 +1441,7 @@ $balance = $bankAccount->getBalance();
 لمزيد من المعلومات يمكنك قراءة [مقال مدونة](http://fabien.potencier.org/pragmatism-over-theory-protected-vs-private.html) حول هذا الموضوع بواسطة [Fabien Potencier](https://github.com/fabpot).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1349,7 +1461,9 @@ echo 'Employee name: ' . $employee->name;
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1393,6 +1507,7 @@ echo 'Employee name: ' . $employee->getName();
 (تغيير إنفاق السعرات الحرارية لجميع الحيوانات عندما تتحرك).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1433,7 +1548,9 @@ class EmployeeTaxData extends Employee
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1495,6 +1612,7 @@ class Employee
 لمزيد من المعلومات ، يمكنك قراءة [منشور المدونة](https://ocramius.github.io/blog/fluent-interfaces-are-evil/) الكامل حول هذا الموضوع بواسطة [Marco Pivetta](https://github.com/Ocramius).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1544,7 +1662,9 @@ $car = (new Car())
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1605,6 +1725,7 @@ The only condition is that your class should implement an interface and no other
 لمزيد من المعلومات يمكنك أن تقرأ [منشور المدونة](https://ocramius.github.io/blog/when-to-declare-classes-final/) حول هذا الموضوع بواسطة [Marco Pivetta (Ocramius)](https://ocramius.github.io/).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1628,7 +1749,9 @@ final class Car
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1674,6 +1797,7 @@ final class Car implements Vehicle
 كما هو مذكور في Clean Code ، "يجب ألا يكون هناك أكثر من سبب لتغيير الكلاس". من المغري أن تقوم بتعبئة كلاس بالعديد من الوظائف ، مثل عندما يمكنك أن تأخذ حقيبة سفر واحدة فقط على متن رحلتك. تكمن المشكلة في أن الكلاس لن يكون متماسكًا من الناحية المفاهيمية وسيكون له العديد من الأسباب للتغيير. من المهم تقليل عدد المرات التي تحتاج فيها لتغيير الكلاس. إنه أمر مهم لأنه إذا كان هناك الكثير من الوظائف في كلاس واحدة وقمت بتعديل جزء منها ، فقد يكون من الصعب فهم كيف سيؤثر ذلك على الوحدات التابعة الأخرى في مشروعك.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1749,6 +1873,7 @@ class UserSettings
 كما ذكر برتراند ماير ، "يجب أن تكون الكيانات البرمجية (الكلاسات ، والوحدات ، والدوال ، وما إلى ذلك) مفتوحة للتمديد ، ولكنها مغلقة للتعديل." ماذا يعني ذلك ؟ ينص هذا المبدأ بشكل أساسي على أنه يجب عليك السماح للمستخدمين بإضافة وظائف جديدة دون تغيير الكود الحالي.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1815,7 +1940,9 @@ class HttpRequester
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -1868,6 +1995,7 @@ class HttpRequester
 أفضل تفسير لذلك هو إذا كان لديك كلاس رئيسي وكلاس فرعي ، فيمكن استخدام الكلاس الرئيسي والكلاس الفرعي بالتبادل دون الحصول على نتائج غير صحيحة. قد يكون هذا محيرًا ، لذلك دعونا نلقي نظرة على مثال Square-Rectangle الكلاسيكي. من الناحية الحسابية ، يعتبر المربع مستطيلًا ، ولكن إذا قمت بنمذجه باستخدام علاقة "is-a" عبر الوراثة ، فسوف تقع في مشكلة بسرعة.
 
 **سيء:**
+
 </div>
 
 ```php
@@ -1923,6 +2051,7 @@ foreach ($rectangles as $rectangle) {
 ```
 
 <div dir="rtl">
+
 **جيد:**
 
 أفضل طريقة هي فصل المربعات وتخصيص نوع فرعي أكثر عمومية لكلا الشكلين.
@@ -1930,6 +2059,7 @@ foreach ($rectangles as $rectangle) {
 على الرغم من التشابه الواضح بين المربع والمستطيل ، إلا أنهما مختلفان.
 يشترك المربع كثيرًا مع المعين ، والمستطيل بمتوازي أضلاع ، لكنهما ليسا أنواعًا فرعية.
 المربع ، المستطيل ، المعين ، متوازي الأضلاع هي أشكال منفصلة لها خصائصها الخاصة ، وإن كانت متشابهة.
+
 </div>
 
 ```php
@@ -1992,6 +2122,7 @@ foreach ($shapes as $shape) {
 من الأمثلة الجيدة التي يجب النظر إليها والتي توضح هذا المبدأ هي الكلاسات التي تتطلب إعدادات كبيرة. يعد عدم مطالبة الكود بإعداد كميات هائلة من الخيارات أمرًا مفيدًا ، لأنهم في معظم الأوقات لن يحتاجوا إلى جميع الإعدادات. يساعد جعلها اختيارية على منع وجود "واجهة سمينة" (fat interface).
 
 **سيء:**
+
 </div>
 
 ```php
@@ -2030,9 +2161,11 @@ class RobotEmployee implements Employee
 ```
 
 <div dir="rtl">
+
 **جيد:**
 
 ليس كل عامل موظفًا ، لكن كل موظف عامل.
+
 </div>
 
 ```php
@@ -2122,7 +2255,9 @@ class Manager
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -2209,7 +2344,9 @@ function showManagerList(array $managers): void
 ```
 
 <div dir="rtl">
+
 **جيد:**
+
 </div>
 
 ```php
@@ -2229,7 +2366,7 @@ function showList(array $employees): void
 
 **جيد جدا:**
 
-It is better to use a compact version of the code.
+من الأفضل استخدام نسخة مضغوطة من الكود.
 </div>
 
 ```php
